@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="main.js"></script>
+    <script type="module" src="functions.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <title>Formulário Conquista</title>
+</head>
+<body>
+    <img src="/Logo_Conquista.png" alt="">
+    <div class="box">
+        <fieldset class="fieldsetA">
+                <legend class="legenda"><b>Características do Lote</b></legend>
+                <br>
+                <div class="inputBox">
+                    <label id="lbempre" for="empreendimento">Empreendimento:</label>
+                    <input type="text" name="empreendimento" id="empreendimento" class="inputUser" value="Residencial Cidade Alta">
+                </div>
+                <br>
+                <div class="inputBox">
+                    <label id="lblote" for="lote">Lote*:</label>
+                    <input type="text" name="lote" id="lote" class="inputUser" required>
+                </div>
+                <br>
+                <div class="inputBox">
+                    <label id="lbquadra" for="quadra">Quadra*:</label>
+                    <input type="text" name="quadra" id="quadra" class="inputUser" value="01" required>
+                </div>
+                <br>
+                <br>
+        </fieldset>
+        <br>
+        <fieldset class="fieldsetA">
+                <legend class="legenda"><b>Cliente</b></legend>
+                <br>
+                <div class="inputBox">
+                    <label id="lbnome" for="nome">Nome*:</label>
+                    <input type="text" name="nome" id="nome" class="inputUser" required>
+                </div>
+                <br>
+                <br>    
+                <div class="inputBox">
+                    <label id="lbtelefone" for="telefone">Telefone*:</label>
+                    <input type="text" name="telefone" id="telefone" class="inputUser" required>
+                </div>
+                <br>
+                <div class="inputBox">
+                    <label id="lbemail" for="email">Email:</label>
+                    <input type="text" placeholder="Exemplo@email.com" id="email" class="inputUser" autocomplete="off">
+                </div>
+                <br>
+                <script>
+                    $('#telefone').mask('(00) 00000-0000')     
+                </script>
+        </fieldset>
+        <br>
+        <fieldset class="fieldsetA" id="fieldsetA">
+                <legend class="legenda"><b>Condições Proposta</b></legend>
+                <div class="inputBox">
+                    <label id="lbvlote" for="Vlote">Valor do Lote*:</label>
+                    <input type="text" id="Vlote" class="inputUser" required>
+                </div>
+                <br>
+                <div class="inputBox" id="entrada">
+                    <label id="lbentrada" for="Ventrada">Entrada*:</label>
+                    <input type="text" id="Ventrada" class="inputUser" required>
+                </div>
+                <br><br>
+                Tipo de Parcela*:
+                <input type="radio" name="tipoParcela" id="mensal" value="Mensal">
+                <label for="mensal">Mensal</label>
+                <input type="radio" name="tipoParcela" id="anual" value="Anual">
+                <label for="anual">Anual</label>
+                <br><br>
+                <div>
+                    <label for="Qtdparcela">Quantidade de Parcelas*:</label>
+                    <input type="number" name="qtdparcela" id="Qtdparcela" class="inputUser" required>
+                </div>
+                <script>
+                    $('#Vlote').mask("#.##0,00", {reverse: true})
+                    $('#Vfinanciado').mask("#.##0,00", {reverse: true})
+                    $('#Ventrada').mask("#.##0,00", {reverse: true})
+                </script> 
+        </fieldset>
+            <div id="bts">
+                <button id="btgerar" class="botao"><b>Gerar Proposta</b></button>
+                <button id="btclear" class="botao"><b>Limpar</b></button>
+                <button id="btprint" class="botao"><b>Imprimir</b></button>
+            </div>
+            <p>
+                <label for="observacao">Observação:</label><br>
+                <textarea id="observacao" rows="3" cols="63"></textarea>
+                <br>
+            </p>
+        <fieldset class="fieldsetB"><legend><b>Ass.Cliente</b></legend></fieldset>
+        <fieldset class="fieldsetB"><legend><b>Ass.Corretor</b></legend></fieldset>
+    </div>
+</body>
+</html>
