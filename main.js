@@ -121,15 +121,12 @@ Btclear.onclick = function()
 
 Btprint.onclick = function () 
 {
-    let lbempre = d.getElementById('lbempre')
-    let lblote = d.getElementById('lblote')
-    let lbquadra = d.getElementById('lbquadra')
-    let lbnome = d.getElementById('lbnome')
-    let lbtelefone = d.getElementById('lbtelefone')
-    let lbemail = d.getElementById('lbemail')
-
-    lbempre.style.borderBottom = 'none';
+    let nome = d.getElementById('nome');
+    let telefone = d.getElementById('telefone');
 
     bts.innerHTML = `<br>`;
-    window.print()
+    window.scrollTo(0, 0)
+    window.print();
+    window.location.reload();
+
 }
