@@ -38,14 +38,17 @@ Btgerar.onclick = function ()
     let dadoParcela = f.Parcela(vlote, qtdparcela.value, ventrada, tipoParcela.value)  // Retorna valor da parcela
     //let Valor_parcela = f.Simular(tipoParcela.value, qtdparcela.value, dadoParcela)  //Rertorna o valor real da parcela
     let valorParcela = dadoParcela.toFixed(2);
-    let Tparcela = parseFloat(valorParcela) * qtdparcela.value;
+    let vparcela = parseFloat(valorParcela);
+    let Tparcela = valorParcela * qtdparcela.value;
     ////
+
+    console.log(valorParcela + " Console log")
 
     // Convertendo em STR para visualização do usuário
     let tlote = vlote.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
     let entrada = ventrada.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
     let financiado = Vfinanciado.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
-    let valParcela = valorParcela.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+    let valParcela = vparcela.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
     let Saldo = valorParcela * qtdparcela.value + ventrada;
     let saldo = Saldo.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
     let tparcela = Tparcela.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});

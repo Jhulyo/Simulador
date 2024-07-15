@@ -59,19 +59,16 @@ function Parcela(vlote, prazo, entrada, Tparcela)
         let a = 1 + taxa;
         taxa = a ** 12 - 1;
 
-        console.log(taxa)
-
     } 
 
     let valor_presente = vlote - entrada;
-    console.log(valor_presente + "-> VALOR PRESENTE")
+    
     //Calculo do valor da parcela de acordo com a tabela price
     let A = Math.pow(1 + taxa, prazo) * taxa; // Formula parcela = (1 + Taxa)
     let B = Math.pow(1 + taxa, prazo) - 1;
     let C = A / B;
     let parcela = valor_presente * C;
 
-    console.log(parcela)
     return parcela
 }
 
