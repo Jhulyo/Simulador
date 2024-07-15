@@ -2,6 +2,7 @@
 import * as f from './functions.js';
 const d = document;// objeto document
 
+
 let fieldset = d.getElementById('fieldsetA');// objeto para coloar inserir table
 
 // Objetos de botões
@@ -34,17 +35,17 @@ Btgerar.onclick = function ()
     let vlote = parseFloat(f.RpStr(Vlote.value));  // Valor do lote
     let ventrada = parseFloat(f.RpStr(Ventrada.value));  // Valor de entrada
     let Vfinanciado = vlote - ventrada;  //Valor financiado 
-    let dadoParcela = f.ParcelaMensal(vlote, qtdparcela.value, ventrada, tipoParcela.value)  // Armazena valor base para calculo mensal ou anual
-    let Valor_parcela = f.Simular(tipoParcela.value, qtdparcela.value, dadoParcela)  //Rertorna o valor real da parcela
-    let valorParcela = Valor_parcela.toFixed(2);
+    let dadoParcela = f.Parcela(vlote, qtdparcela.value, ventrada, tipoParcela.value)  // Retorna valor da parcela
+    //let Valor_parcela = f.Simular(tipoParcela.value, qtdparcela.value, dadoParcela)  //Rertorna o valor real da parcela
+    let valorParcela = dadoParcela.toFixed(2);
     let Tparcela = parseFloat(valorParcela) * qtdparcela.value;
     ////
 
-    // Convertendo em STR para visualisação do usuário
+    // Convertendo em STR para visualização do usuário
     let tlote = vlote.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
     let entrada = ventrada.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
     let financiado = Vfinanciado.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
-    let valParcela = Valor_parcela.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+    let valParcela = valorParcela.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
     let Saldo = valorParcela * qtdparcela.value + ventrada;
     let saldo = Saldo.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
     let tparcela = Tparcela.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});

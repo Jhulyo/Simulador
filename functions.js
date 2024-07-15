@@ -1,11 +1,4 @@
 
-/*function Parcela(proposta, parcela)
-{
-    let result = proposta / parcela
-
-    return result.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
-};*/
-
 function RpStr(str)
 {   
     let s = str.replace(".", "")
@@ -54,70 +47,37 @@ function InputExpected(list)
      
 }
 
-function AnualxMensal(tparcela,prazo)
-{   
-    let result;
-    if(tparcela === 'Anual')
-    {
-        result = prazo * 12;
-    }
-    else
-    {
-        result = prazo;
-    }
 
-    return result
-}
-
-function ParcelaMensal(vlote, prazo, entrada, Tparcela)
+function Parcela(vlote, prazo, entrada, Tparcela)
 {
-    let qtd = AnualxMensal(Tparcela, prazo)
-    let valor_presente = vlote - entrada;
+    
     let taxa = 1.45 / 100;
+
+    if (Tparcela === 'Anual')
+    {   
+        console.log("Entrou no If")
+        let a = 1 + taxa;
+        taxa = a ** 12 - 1;
+
+        console.log(taxa)
+
+    } 
+
+    let valor_presente = vlote - entrada;
+    console.log(valor_presente + "-> VALOR PRESENTE")
     //Calculo do valor da parcela de acordo com a tabela price
-    let A = Math.pow(1 + taxa, qtd) * taxa; // Formula parcela = (1 + Taxa)
-    let B = Math.pow(1 + taxa, qtd) - 1;
+    let A = Math.pow(1 + taxa, prazo) * taxa; // Formula parcela = (1 + Taxa)
+    let B = Math.pow(1 + taxa, prazo) - 1;
     let C = A / B;
     let parcela = valor_presente * C;
-    
+
+    console.log(parcela)
     return parcela
 }
-
-function ParcelaAnual(dadoParcela, prazo)
-{
-    let qtd = prazo * 12;
-    let taxaAnual = 9.944747858486814724 / 100;
-    let totalM = dadoParcela * qtd;
-    let correcaoAnual = taxaAnual * totalM;
-    let totalA = totalM + correcaoAnual;
-    let result = totalA / prazo;
-    console.log(dadoParcela)
-
-    return result;
-}
-
-function Simular(Tparcela, qtdparcela, dadoParcela)    
-{
-    if(Tparcela === 'Anual') 
-    {
-        console.log('Entrou na condição anual!')
-        
-        let result = ParcelaAnual(dadoParcela, qtdparcela);
-        return result
-    }
-    else
-    {
-        console.log('Não entrou na condição anual')
-        return dadoParcela;
-    }
-    
-};
 
 export 
 {
     RpStr,
     InputExpected,
-    ParcelaMensal,
-    ParcelaAnual,
-    Simular
+    Parcela
 }
