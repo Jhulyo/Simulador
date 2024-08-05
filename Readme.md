@@ -6,4 +6,4 @@ Todos os campos de entrada com exceção do Campo E-mail são obrigatórios.
 
 O juros aplicado é de 1.45 ao mês.
 
-Versão V1
+Versão 3
